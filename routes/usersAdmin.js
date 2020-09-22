@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/user');
+const UserAdmin = require('../models/userAdmin');
 
 
 // @route    POST api/users
@@ -18,28 +18,28 @@ router.post('/',
         check(
           'password',
           'Por favor, digita uma senha com um mínimo de 8 dígitos!'
-        ).isLength({ min: 8 })
+        ).isLength({ min: 8 }),
+        check('code', 'Code is invalid').equals('723')
     ],
     async (req, res) => {
+        console.log('got in api/users');
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         try {
-            const { name, email, password, phone, address } =  req.body;
+            const { name, email, password } =  req.body;
 
-            let user = await User.findOne({ email });
+            let user = await UserAdmin.findOne({ email });
 
             if (user) {
                 return res.status(400).json({ errors: [{msg: 'Um usuário já foi cadastrado com esse email'}] });
             }
 
-            user = new User({
+            user = new UserAdmin({
                 name,
                 email,
-                password,
-                phone,
-                address
+                password
             });
 
             const salt = await bcrypt.genSalt(15);
@@ -65,7 +65,6 @@ router.post('/',
             );
 
         } catch (err) {
-            console.log(err);
             return res.status(400).json({ errors: [{msg: 'Erro inesperado, talvez um usuário já esteja cadastrado com essa matrícula!'}] });
         }
     }

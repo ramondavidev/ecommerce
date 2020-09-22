@@ -21,7 +21,7 @@ const ItemSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    options: {
+    option: {
         type: String,
         required: true
     },

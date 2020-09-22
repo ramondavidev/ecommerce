@@ -5,7 +5,7 @@ const auth = require('../middleware/auth');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/user');
+const UserAdmin = require('../models/userAdmin');
 
 // @route    GET api/auth
 // @desc     Get user by token
@@ -13,7 +13,7 @@ const User = require('../models/user');
 //tested
 router.get('/', auth, async(req, res) => {
     try {
-        let user = await User.findById(req.user.id).select('-password');
+        let user = await UserAdmin.findById(req.user.id).select('-password');
         res.json(user);
     } catch (error) {
         console.log(error.message);
@@ -40,7 +40,7 @@ router.post(
       const { email, password } = req.body;
   
       try {
-        let user = await User.findOne({ email });
+        let user = await UserAdmin.findOne({ email });
   
         if (!user) {
           return res
