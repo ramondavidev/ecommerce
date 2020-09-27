@@ -21,7 +21,7 @@ const Home = () => {
                     </div>
                 </div>
                 
-                <p className='seeMore'><span className='first-child'>Mais vendidos da semana</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'><span className='first-child'>Moda Masculina</span><span className='second-child'>Ver mais produos</span></p>
                 
                 <div className='card-container'>
                     <Card />
@@ -38,7 +38,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <p className='seeMore'><span className='first-child'>Melhores Promoções</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'><span className='first-child'>Moda Feminina</span><span className='second-child'>Ver mais produos</span></p>
                 
                 <div className='card-container'>
                     <Card />
@@ -46,7 +46,7 @@ const Home = () => {
                     <Card />
                 </div>
 
-                <p className='seeMore'><span className='first-child'>Novidades</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'><span className='first-child'>Calçados</span><span className='second-child'>Ver mais produos</span></p>
                 
                 <div className='card-container'>
                     <Card />

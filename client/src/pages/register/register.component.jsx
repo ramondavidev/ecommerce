@@ -1,9 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { register } from '../../redux/user/user-actions';
 
 import './register.styles.scss';
 
-const Register = () => {
+const Register = ({ register, isAuthenticated }) => {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const { name, email, phone, password, confirmPassword } = formData;
+
+    const onChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value });
+    }
+
+    const onSubmit = async(e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+            alert('As senhas não são iguais!');
+        } else {
+            register({ name, email, phone, password });
+        }
+    }
+
+    if (isAuthenticated) {
+        return <Redirect to="/" />;
+    }
+
     return (
         <div className='register-page'>
             <div className='photo'>
@@ -17,16 +48,19 @@ const Register = () => {
                     <p className='title'>Cadastro</p>
                 </div>
 
-                <form>
+                <form onSubmit={onSubmit}>
                     <div className='input'>
                         <label htmlFor="name">Nome Completo:</label>
                         <input 
                         className='input-pattern' 
                         type="text" 
                         name="name" 
-
                         id="name" 
-                        placeholder="ex: Pedro Guilherme da Silva"/>
+                        placeholder="ex: Pedro Guilherme da Silva"
+                        value={name}
+                        onChange={onChange}
+                        required
+                    />
                     </div>
                     <div className='input'>
                         <label htmlFor="email">Email:</label>
@@ -35,16 +69,24 @@ const Register = () => {
                         type="text" 
                         name="email" 
                         id="email" 
-                        placeholder="(DDD) 997094523"/>
+                        placeholder="ex: ana@gmail.com"
+                        value={email}
+                        onChange={onChange}
+                        required
+                    />
                     </div>
                     <div className='input'>
                         <label htmlFor="email">Telefone:</label>
                         <input 
                         className='input-pattern' 
                         type="text" 
-                        name="email" 
+                        name="phone" 
                         id="email" 
-                        placeholder="ex: ana@gmail.com"/>
+                        placeholder="(DDD) 997094523"
+                        value={phone}
+                        onChange={onChange}
+                        required
+                    />
                     </div>
                     <div className='input'>
                         <label htmlFor="password">Senha:</label>
@@ -53,7 +95,11 @@ const Register = () => {
                         type="password" 
                         name="password" 
                         id="password" 
-                        placeholder="Sua senha de cadastro"/>
+                        placeholder="Sua senha de cadastro"
+                        value={password}
+                        onChange={onChange}
+                        required
+                    />
                     </div>
                     <div className='input'>
                         <label htmlFor="confirmPassword">Confirmar Senha:</label>
@@ -62,7 +108,11 @@ const Register = () => {
                         type="password" 
                         name="confirmPassword" 
                         id="confirmPassword" 
-                        placeholder="Sua senha de cadastro"/>
+                        placeholder="Sua senha de cadastro"
+                        value={confirmPassword}
+                        onChange={onChange}
+                        required
+                    />
                     </div>
                     <div>
                         <button className='btn-login mt-30'>Cadastrar</button>
@@ -74,4 +124,8 @@ const Register = () => {
     )
 };
 
-export default Register;
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.user.isAuthenticated
+});
+
+export default connect(mapStateToProps, { register } )(Register);

@@ -26,9 +26,9 @@ const Header = () => {
                 <p style={{fontSize: '24px'}}><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</p>
                 <input type="text" className='input-pattern' placeholder='Busque por item'/>
                 <div className='icons'>
-                    <i class="far fa-heart icon-heart"></i>
-                    <i class="fas fa-cart-arrow-down icon-cart"></i>
-                    <i class="far fa-user icon-profile"></i>
+                    <i className="far fa-heart icon-heart"></i>
+                    <i className="fas fa-cart-arrow-down icon-cart"></i>
+                    <i className="far fa-user icon-profile"></i>
                 </div>
             </div>
 

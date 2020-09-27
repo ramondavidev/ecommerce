@@ -16,9 +16,9 @@ const Footer = () => {
                     <div>
                         <p>Siga nossas redes sociais</p>
                         <div className='social-networks'>
-                            <i class="fab fa-facebook-square fa-2x fc"></i> 
-                            <i class="fab fa-twitter fa-2x mx-1 tw"></i> 
-                            <i class="fab fa-instagram fa-2x inst"></i></div>
+                            <i className="fab fa-facebook-square fa-2x fc"></i> 
+                            <i className="fab fa-twitter fa-2x mx-1 tw"></i> 
+                            <i className="fab fa-instagram fa-2x inst"></i></div>
                     </div>
                 </div>
 

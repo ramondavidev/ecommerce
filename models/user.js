@@ -18,24 +18,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    address: {
-        state: { 
-            type: String, 
-            require: true
-        },
-        city: { 
-            type: String, 
-            require: true
-        },
-        street: {
-            type: String, 
-            require: true
-        },
-        number: {
-            type: String, 
-            require: true
-        },
-    },
     favorites: [
         {
             item: {
