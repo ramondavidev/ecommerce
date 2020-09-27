@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { logout } from '../../redux/user/user-actions';
 
 import './header.styles.scss';
 
-const Header = () => {
+const Header = ({ logout }) => {
+
+    const [showFavs, setShowFavs] = useState(false);
+    const [showCart, setShowCart] = useState(false);
+    const [userOptions, setUserOptions] = useState(false);
+
+    const clickUserIcon = () => {
+        setShowFavs(false);
+        setShowCart(false);
+        setUserOptions(!userOptions);
+    }
+
+    const clickCartIcon = () => {
+        setShowFavs(false);
+        setShowCart(!showCart);
+        setUserOptions(false);
+    }
+
+    const clickFavIcon = () => {
+        setShowFavs(!showFavs);
+        setShowCart(false);
+        setUserOptions(false);
+    }
+
     return (
         <div className='header'>
 
@@ -26,9 +52,34 @@ const Header = () => {
                 <p style={{fontSize: '24px'}}><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</p>
                 <input type="text" className='input-pattern' placeholder='Busque por item'/>
                 <div className='icons'>
-                    <i className="far fa-heart icon-heart"></i>
-                    <i className="fas fa-cart-arrow-down icon-cart"></i>
-                    <i className="far fa-user icon-profile"></i>
+                    <div>
+                        <button className={showFavs && 'grow'} onClick={() => clickFavIcon()}>
+                            <i className="far fa-heart icon-heart"></i>
+                        </button>
+                        {showFavs && <div className='fav-options'>Hey</div>}
+                    </div>
+
+                    <div>
+                        <button className={showCart && 'grow'} onClick={() => clickCartIcon()}>
+                            <i className="fas fa-cart-arrow-down icon-cart"></i>
+                        </button>
+                        {showCart && <div className='cart-options'>Hey</div>}
+                    </div>
+
+                    <div>
+                        <button className={userOptions && 'grow'} onClick={() => clickUserIcon()}>
+                            <i className="far fa-user icon-profile"></i>
+                        </button>
+                        {
+                            userOptions && 
+                            <div className='user-options'>
+                                <a className='logout-btn' onClick={() => {logout()}} >
+                                    <i className='fas fa-sign-out-alt fa-lg text-danger' />{' '}
+                                    <div className='hide-sm'>Sair</div>
+                                </a>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
 
@@ -57,4 +108,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default connect(null, { logout })(Header);

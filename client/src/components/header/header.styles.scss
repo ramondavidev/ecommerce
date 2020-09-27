@@ -80,4 +80,52 @@
         border-radius: 10px;
         color: #ffffff;
     }
+
+    button {
+        background-color: #ffffff;
+        border: none;
+        cursor: pointer;
+        transition-duration: 0.2s;
+        &:hover {
+            font-size: 1.2em;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .fav-options {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #EF476F;
+        border-radius: 12px;
+        color: #ffffff;
+    }
+
+    .user-options {
+        position: absolute;
+        width: 100px;
+        background-color: #142850;
+        border-radius: 12px;
+        color: #ffffff;
+        .logout-btn {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+    }
+    .cart-options {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #FFD166;
+        border-radius: 12px;
+        color: #ffffff;
+    }
+
+    .grow {
+        font-size: 1.2em;
+    }
 }
