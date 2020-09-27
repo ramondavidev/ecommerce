@@ -1,0 +1,96 @@
+.home {
+    .featured-image {
+        width: 95vw;
+        height: 400px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.532) 0%, rgba(215, 53, 120, 0.38) 100%), url('https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+        border-radius: 12px;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        .info {
+            width: 350px;
+            color: #FFFFFF;
+            margin-left: 5%;
+            
+        }
+        .button-offer {
+            border: 1px solid #FFFFFF;
+            border-radius: 8px;
+            padding: 9px 60px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .seeMore {
+        width: 90vw;
+        margin: 50px auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .first-child {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .second-child {
+            font-weight: bold;
+            color: #EF476F;
+        }
+    }
+    .second-featured-image {
+        display: flex;
+        width: 90vw;
+        margin: 0 auto 50px;
+        justify-content: space-between;
+        align-items: center;
+        img {
+            width: 40vw;
+            border-radius: 12px;
+        }
+        .info {
+            width: 40vw;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .text {
+            color: rgba(0, 0, 0, .5);
+        }
+        button {
+            margin-top: 20px;
+            color: #EF476F;
+            border: 1px solid #EF476F;
+            padding: 15px 40px;
+            border-radius: 12px;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            &:hover {
+                color: #FFFFFF;
+                border: 1px solid #FFFFFF;
+                background-color: #EF476F;
+                transition: .3s;
+            }
+        }
+    }
+    
+    .links {
+        display: flex;
+        font-weight: bold;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+        .link {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            flex-basis: 250px;
+        }
+    }
+
+}

@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { login } from '../../redux/user/user-actions';
 
 import './login.styles.scss';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const { email, password } = formData;
+
+    const onChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value });
+    }
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        login(email, password);
+      };
+
+    if (isAuthenticated) {
+        return <Redirect to="/" />;
+    }
+
     return (
         <div className='login-page'>
             <div className='photo'>
@@ -15,7 +40,7 @@ const Login = () => {
             <div className='login'>
                 <p className='title'>Olá, seja bem vindo</p>
 
-                <form>
+                <form onSubmit={onSubmit}>
                     <div className='input'>
                         <label htmlFor="email">Email:</label>
                         <input 
@@ -24,6 +49,8 @@ const Login = () => {
                             name="email"
                             id="email" 
                             placeholder="ex: ana@gmail.com"
+                            value={email}
+                            onChange={onChange}
                         />
                     </div>
                     <div className='input'>
@@ -34,6 +61,8 @@ const Login = () => {
                             name="password" 
                             id="password" 
                             placeholder="Sua senha cadastrada"
+                            value={password}
+                            onChange={onChange}
                         />
                     </div>
                     <div className='links'>
@@ -47,4 +76,8 @@ const Login = () => {
     )
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.user.isAuthenticated
+}) 
+
+export default connect(mapStateToProps, { login })(Login);
