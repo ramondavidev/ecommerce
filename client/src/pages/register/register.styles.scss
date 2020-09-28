@@ -55,12 +55,13 @@
             margin-top: 10px;
             border-radius: 12px;
             padding: 15px 20px;
-            border: none;
             background-color: #F8F8F8;
+            border: 1px solid #F8F8F8;
             width: 90%;
             //box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
             &:focus {
                 outline: none;
+                border: 1px solid #394989;
             }
         }
 

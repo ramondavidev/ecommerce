@@ -7,6 +7,9 @@ import PrivateRoute from './PrivateRoute';
 import Home from './pages/home/home.component';
 import Login from './pages/login/login.component';
 import Register from './pages/register/register.component';
+import Men from './pages/men/men.component';
+import Women from './pages/women/women.component';
+import Children from './pages/children/children.component';
 
 import store from './redux/store';
 import { loadUser } from './redux/user/user-actions';
@@ -24,9 +27,12 @@ const App = () => {
   return (
     <Fragment>
       <Switch>
-        <PrivateRoute exact path='/' component={Home} />
         <Route exact path='/registrar' component={Register} />
         <Route exact path='/login' component={Login} />
+        <PrivateRoute exact path='/' component={Home} />
+        <PrivateRoute exact path='/roupas-masculinas' component={Men} />
+        <PrivateRoute exact path='/roupas-femininas' component={Women} />
+        <PrivateRoute exact path='/roupas-infantis' component={Children} />
       </Switch>
     </Fragment>
   );

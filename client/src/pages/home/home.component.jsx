@@ -1,14 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/header/header.component';
 
 import Card from '../../components/card/card.component';
-import Footer from '../../components/footer/footer.component'
+import Footer from '../../components/footer/footer.component';
+
+import { connect } from 'react-redux';
+import { getProducts } from '../../redux/product/product.actions';
 
 import './home.styles.scss';
 
-const Home = () => {
+const Home = ({ getProducts }) => {
+    useEffect(() => {
+        getProducts();
+    }, []);
     return (
         <Fragment>
             <Header />
@@ -74,4 +80,8 @@ const Home = () => {
     )
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+    products: state.products
+  });
+
+export default connect( mapStateToProps, { getProducts })(Home);
