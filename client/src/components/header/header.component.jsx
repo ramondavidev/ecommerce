@@ -49,7 +49,7 @@ const Header = ({ logout }) => {
             </div>
 
             <div className='flex-container-actions'>  
-                <p style={{fontSize: '24px'}}><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</p>
+                <Link to='/' className='logo'><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</Link>
                 <input type="text" className='input-pattern' placeholder='Busque por item'/>
                 <div className='icons'>
                     <div>
@@ -84,13 +84,13 @@ const Header = ({ logout }) => {
             </div>
 
             <div className='flex-container-menu'>
-                <Link to='/moda-feminina' className='flex-item-menu'>
-                    Moda feminina
-                </Link>
-                <Link to='/moda-masculina' className='flex-item-menu'>
+                <Link to='/roupas-masculinas' className='flex-item-menu'>
                     Moda masculina
                 </Link>
-                <Link to='/infantil' className='flex-item-menu'>
+                <Link to='/roupas-femininas' className='flex-item-menu'>
+                    Moda feminina
+                </Link>
+                <Link to='/roupas-infantis' className='flex-item-menu'>
                     Moda infantil
                 </Link>
                 <Link to='/calcados' className='flex-item-menu'>

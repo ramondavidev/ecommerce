@@ -29,6 +29,10 @@ const ItemSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    productFor: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('item', ItemSchema);

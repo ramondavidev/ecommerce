@@ -7,14 +7,18 @@ import Card from '../../components/card/card.component';
 import Footer from '../../components/footer/footer.component';
 
 import { connect } from 'react-redux';
-import { getProducts } from '../../redux/product/product.actions';
+import { displayHome } from '../../redux/product/product.actions';
 
 import './home.styles.scss';
 
-const Home = ({ getProducts }) => {
+const Home = ({ displayHome, products }) => {
+
     useEffect(() => {
-        getProducts();
+        displayHome();
     }, []);
+
+    console.log(products);
+    const { men, women, children } = products;
     return (
         <Fragment>
             <Header />
@@ -27,12 +31,20 @@ const Home = ({ getProducts }) => {
                     </div>
                 </div>
                 
-                <p className='seeMore'><span className='first-child'>Moda Masculina</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'>
+                    <span className='first-child'>Moda Masculina</span>
+                    <Link to='roupas-masculinas' style={{textDecoration: 'none'}}><span className='second-child'>Ver mais produos</span></Link>
+                </p>
                 
                 <div className='card-container'>
-                    <Card />
-                    <Card />
-                    <Card />
+                    {
+                        men ? 
+                            men.map(product => (
+                                <Card key={product._id} product={product} />
+                            ))
+                        : 
+                            <p>loading...</p>
+                    }
                 </div>
 
                 <div className='second-featured-image'>
@@ -47,17 +59,27 @@ const Home = ({ getProducts }) => {
                 <p className='seeMore'><span className='first-child'>Moda Feminina</span><span className='second-child'>Ver mais produos</span></p>
                 
                 <div className='card-container'>
-                    <Card />
-                    <Card />
-                    <Card />
+                    {
+                        women ? 
+                            women.map(product => (
+                                <Card key={product._id} product={product} />
+                            ))
+                        : 
+                            <p>loading...</p>
+                    }
                 </div>
 
-                <p className='seeMore'><span className='first-child'>Calçados</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'><span className='first-child'>Infantil</span><span className='second-child'>Ver mais produos</span></p>
                 
                 <div className='card-container'>
-                    <Card />
-                    <Card />
-                    <Card />
+                    {
+                        children ? 
+                            children.map(product => (
+                                <Card key={product._id} product={product} />
+                            ))
+                        : 
+                            <p>loading...</p>
+                    }
                 </div>
 
                 <div className='links'>
@@ -81,7 +103,7 @@ const Home = ({ getProducts }) => {
 };
 
 const mapStateToProps = (state) => ({
-    products: state.products
+    products: state.products.products
   });
 
-export default connect( mapStateToProps, { getProducts })(Home);
+export default connect( mapStateToProps, { displayHome })(Home);
