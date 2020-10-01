@@ -100,10 +100,8 @@ const Home = ({ displayHome, products, cart }) => {
                     <span className='link'>Cama</span>
                     <span className='link'>Outros</span>
                 </div>
-
-            <Footer />
-
             </div>
+            <Footer />
         </Fragment>
     )
 };

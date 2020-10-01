@@ -1,0 +1,28 @@
+.cart-page {
+    width: 80vw;
+    margin: auto;
+
+    .empty-message {
+        color: purple;
+    }
+
+    .confirm-purchase {
+        text-align: right;
+        margin: 30px 0;
+    }
+
+    .btn {
+        background-color: #EF476F;
+        border-radius: 12px;
+        padding: 15px 20px;
+        border: none;
+        color: #ffffff;
+        width: 150px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background-color: #eb2151;
+        }
+    }
+}

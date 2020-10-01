@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/user/user-actions';
 
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 import './header.styles.scss';
 
 const Header = ({ logout }) => {
@@ -63,7 +65,11 @@ const Header = ({ logout }) => {
                         <button className={showCart? 'grow' : null} onClick={() => clickCartIcon()}>
                             <i className="fas fa-cart-arrow-down icon-cart"></i>
                         </button>
-                        {showCart && <div className='cart-options'>Hey</div>}
+                        {showCart && 
+                        <div>
+                            <CartDropdown />
+                        </div>
+                        }
                     </div>
 
                     <div>

@@ -26,37 +26,25 @@ export const addItemToCart = (cartItems, cartItemToAdd) => async dispatch => {
     });
     }
 }
-/*
-export const addItemToCart = (cartItems, item) => async dispatch => {
-    console.log(cartItems);
-    console.log('--------------------------------------------------------------');
-    console.log(item);
-    if(cartItems.length > 0) {
-        console.log('got here!!');
-        const existingCartItem = cartItems.find(
-            cartItem => cartItem._id === item._id
-        );
-        if (existingCartItem) {
-            let newCartEdited = cartItems.map(cartItem =>
-                cartItem._id === item._id
-                ? { ...cartItem, quantity: cartItem.quantity + 1}
-                : cartItem 
-            )
-            dispatch({
-                type: ADD_ITEM_TO_CART,
-                payload: newCartEdited
-            });
-        } else {
-            const addedNewItemToCart = [...cartItems, { ...item, quantity: 1 }];
-            dispatch({
-                type: ADD_ITEM_TO_CART,
-                payload: addedNewItemToCart
-            });
-        }
-    } else {
-        dispatch({
-            type: ADD_ITEM_TO_CART,
-            payload: item
-        });
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => async dispatch => {
+    const existingCartItem = cartItems.find(
+        cartItem => cartItem._id === cartItemToRemove._id
+    )
+
+    if(existingCartItem.quantityBuy === 1) {
+        return cartItems.filter(cartItem => cartItem._id !== cartItemToRemove._id)
     }
-}*/
+
+    const cartUpdated = cartItems.map(
+        cartItem => 
+        cartItem._id === cartItemToRemove._id ?
+        {...cartItem, quantityBuy: cartItem.quantityBuy - 1 }
+        : cartItem
+    );
+
+    dispatch({
+        type: ADD_ITEM_TO_CART,
+        payload: cartUpdated
+    });
+};

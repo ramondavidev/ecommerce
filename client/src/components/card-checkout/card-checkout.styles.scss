@@ -1,0 +1,32 @@
+.card-checkout {
+    background-color: #F8F8F8;
+    display: flex;
+    border-radius: 12px;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    img {
+        border-radius: 12px;
+        max-height: 150px;
+    }
+    .info {
+        text-align: left;
+        margin-left: 30px;
+        flex-basis: 400px;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .greyColor {
+        color: rgba(0, 0, 0, .5);
+    }
+
+    .remove-icon {
+        padding: 10px;
+        color: #ffffff;
+        background-color: #EF4747;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+}

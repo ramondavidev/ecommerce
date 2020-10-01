@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 
 import Header from '../../components/header/header.component';
+import Footer from '../../components/footer/footer.component';
 import Card from '../../components/card/card.component';
 
 import { connect } from 'react-redux';
@@ -15,19 +16,22 @@ const Children = ({ getProductsByGroup, children }) => {
     }, []);
 
     return (
-        <div className='children'>
+        <Fragment>
             <Header />
-            <div className='card-container'>
-            {
-                children ? 
-                    children.map(product => (
-                        <Card key={product._id} product={product} />
-                    ))
-                : 
-                    <p>loading...</p>
-            }
+            <div className='children'>
+                <div className='card-container'>
+                {
+                    children ? 
+                        children.map(product => (
+                            <Card key={product._id} product={product} />
+                        ))
+                    : 
+                        <p>loading...</p>
+                }
+                </div>
             </div>
-        </div>
+            <Footer />
+        </Fragment>
     )
 }
 
