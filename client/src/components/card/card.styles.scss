@@ -18,6 +18,20 @@
         min-height: 38px;
     }
 
+    .fav-icon {
+        position: absolute;
+        margin-left: -50px;
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, .2);
+        padding: 10px;
+        border-radius: 12px;
+        color: #ffffff;
+        cursor: pointer;
+        &:hover {
+            color: #eb2151;
+        }
+    }
+
     .card-info {
         padding: 25px;
         .card-bottom {

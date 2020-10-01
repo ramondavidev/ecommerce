@@ -8,10 +8,10 @@ import { getProductsByGroup } from '../../redux/product/product.actions';
 
 import './children.styles.scss';
 
-const Children = ({ getProductsByGroup, products }) => {
+const Children = ({ getProductsByGroup, children }) => {
 
     useEffect(() => {
-        getProductsByGroup('crianca');
+        getProductsByGroup('crianca', 'GET_PRODUCTS_FOR_CHILDREN');
     }, []);
 
     return (
@@ -19,8 +19,8 @@ const Children = ({ getProductsByGroup, products }) => {
             <Header />
             <div className='card-container'>
             {
-                products ? 
-                    products.map(product => (
+                children ? 
+                    children.map(product => (
                         <Card key={product._id} product={product} />
                     ))
                 : 
@@ -32,7 +32,7 @@ const Children = ({ getProductsByGroup, products }) => {
 }
 
 const mapStateToProps = (state) => ({
-    products: state.products.products
+    children: state.products.children
   });
 
 export default connect( mapStateToProps, { getProductsByGroup })(Children);

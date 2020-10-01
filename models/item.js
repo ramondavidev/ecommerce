@@ -13,6 +13,10 @@ const ItemSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    quantityBuy: {
+        type: Number,
+        default: 0
+    },
     image: {
         type: String,
         required: true

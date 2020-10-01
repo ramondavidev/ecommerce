@@ -21,6 +21,12 @@
             padding: 9px 60px;
             color: #FFFFFF;
             text-decoration: none;
+            transition-duration: 0.2s;
+            font-weight: 700;
+            &:hover {
+                background-color: #FFFFFF;
+                color: rgba(0, 0, 0, 1);
+            }
         }
     }
     .card-container {

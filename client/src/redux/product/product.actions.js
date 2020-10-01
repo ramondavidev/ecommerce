@@ -2,7 +2,7 @@ import api from '../../utils/api';
 
 import {
     PRODUCT_ERROR,
-    GET_PRODUCT_BY_CATEGORY,
+    GET_PRODUCTS_BY_CATEGORY,
     GET_PRODUCT_BY_ID,
     GET_PRODUCTS
 } from './product.types';
@@ -50,7 +50,7 @@ export const getProductsByCategory = ( category ) => async dispatch => {
       const res = await api.post('/items/category', form);
   
       dispatch({
-        type: GET_PRODUCT_BY_CATEGORY,
+        type: GET_PRODUCTS_BY_CATEGORY,
         payload: res.data
       });
     } catch (err) {
@@ -62,7 +62,7 @@ export const getProductsByCategory = ( category ) => async dispatch => {
   };
 
   // Get posts
-export const getProductsByGroup = ( productFor ) => async dispatch => {
+export const getProductsByGroup = ( productFor, type ) => async dispatch => {
   try {
     const form = {
       productFor
@@ -70,7 +70,7 @@ export const getProductsByGroup = ( productFor ) => async dispatch => {
     const res = await api.post('/items/group', form);
 
     dispatch({
-      type: GET_PRODUCT_BY_CATEGORY,
+      type: type,
       payload: res.data
     });
   } catch (err) {

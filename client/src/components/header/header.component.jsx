@@ -53,21 +53,21 @@ const Header = ({ logout }) => {
                 <input type="text" className='input-pattern' placeholder='Busque por item'/>
                 <div className='icons'>
                     <div>
-                        <button className={showFavs && 'grow'} onClick={() => clickFavIcon()}>
+                        <button className={showFavs? 'grow' : null} onClick={() => clickFavIcon()}>
                             <i className="far fa-heart icon-heart"></i>
                         </button>
                         {showFavs && <div className='fav-options'>Hey</div>}
                     </div>
 
                     <div>
-                        <button className={showCart && 'grow'} onClick={() => clickCartIcon()}>
+                        <button className={showCart? 'grow' : null} onClick={() => clickCartIcon()}>
                             <i className="fas fa-cart-arrow-down icon-cart"></i>
                         </button>
                         {showCart && <div className='cart-options'>Hey</div>}
                     </div>
 
                     <div>
-                        <button className={userOptions && 'grow'} onClick={() => clickUserIcon()}>
+                        <button className={userOptions? 'grow' : null} onClick={() => clickUserIcon()}>
                             <i className="far fa-user icon-profile"></i>
                         </button>
                         {

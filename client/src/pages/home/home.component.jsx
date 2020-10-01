@@ -11,13 +11,13 @@ import { displayHome } from '../../redux/product/product.actions';
 
 import './home.styles.scss';
 
-const Home = ({ displayHome, products }) => {
+const Home = ({ displayHome, products, cart }) => {
 
     useEffect(() => {
         displayHome();
     }, []);
 
-    console.log(products);
+    console.log(cart);
     const { men, women, children } = products;
     return (
         <Fragment>
@@ -56,7 +56,10 @@ const Home = ({ displayHome, products }) => {
                     </div>
                 </div>
 
-                <p className='seeMore'><span className='first-child'>Moda Feminina</span><span className='second-child'>Ver mais produos</span></p>
+                <p className='seeMore'>
+                    <span className='first-child'>Moda Feminina</span>
+                    <Link to='roupas-femininas' style={{textDecoration: 'none'}}><span className='second-child'>Ver mais produos</span></Link>
+                </p>
                 
                 <div className='card-container'>
                     {
@@ -69,8 +72,11 @@ const Home = ({ displayHome, products }) => {
                     }
                 </div>
 
-                <p className='seeMore'><span className='first-child'>Infantil</span><span className='second-child'>Ver mais produos</span></p>
-                
+                <p className='seeMore'>
+                    <span className='first-child'>Infantil</span>
+                    <Link to='roupas-infantis' style={{textDecoration: 'none'}}><span className='second-child'>Ver mais produos</span></Link>
+                </p>
+
                 <div className='card-container'>
                     {
                         children ? 
@@ -103,7 +109,8 @@ const Home = ({ displayHome, products }) => {
 };
 
 const mapStateToProps = (state) => ({
-    products: state.products.products
+    products: state.products.products,
+    cart: state.cart
   });
 
 export default connect( mapStateToProps, { displayHome })(Home);
