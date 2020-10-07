@@ -2,7 +2,7 @@ import React from 'react';
 
 import './card-checkout.styles.scss';
 
-const CardCheckout = ({ item }) => {
+const CardCheckout = ({ item, items, removeItemFromCart, addItemToCart, clearItemFromCart }) => {
     const { image, quantityBuy, price, name } = item;
     return (
         <div className='card-checkout'>
@@ -17,7 +17,7 @@ const CardCheckout = ({ item }) => {
 
             <div style={{flexBasis: '200px'}}>
                 <p style={{fontSize: '18px'}} className='greyColor'>Quantidade</p>
-                <p style={{fontSize: '18px'}} className='bold'>{quantityBuy}</p>
+                <p style={{fontSize: '18px'}}> <span onClick={() =>removeItemFromCart(items, item)} style={{cursor: 'pointer'}}> &#10094; </span> <span className='bold'>{quantityBuy}</span> <span onClick={() => addItemToCart(items, item)} style={{cursor: 'pointer'}}> &#10095; </span></p>
             </div>
 
             <div style={{flexBasis: '200px'}}>
@@ -26,7 +26,7 @@ const CardCheckout = ({ item }) => {
             </div>
 
             <div style={{flexBasis: '200px'}}>
-                <p><i className="far fa-trash-alt fa-lg remove-icon"></i></p>
+                <p onClick={() =>clearItemFromCart(items, item)}><i className="far fa-trash-alt fa-lg remove-icon"></i></p>
             </div>
 
         </div>

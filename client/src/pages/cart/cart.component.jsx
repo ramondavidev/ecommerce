@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
+import { addItemToCart, removeItemFromCart, clearItemFromCart } from '../../redux/cart/cart.actions';
+
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import CardCheckout from '../../components/card-checkout/card-checkout.component';
@@ -10,7 +12,7 @@ import './cart.styles.scss';
 
 
 
-const CartPage = ({ cart }) => {
+const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart }) => {
     const { cartItems } = cart;
 
     const selectTotal = (cart) => {
@@ -28,7 +30,14 @@ const CartPage = ({ cart }) => {
                 {
                     cartItems.length ? (
                         cartItems.map(cartItem => (
-                            <CardCheckout key={cartItem._id} item={cartItem} />
+                            <CardCheckout 
+                                key={cartItem._id} 
+                                item={cartItem} 
+                                removeItemFromCart={removeItemFromCart}
+                                addItemToCart={addItemToCart} 
+                                clearItemFromCart={clearItemFromCart}
+                                items={cartItems}  
+                            />
                         ))
                     ) : (
                         <span className='empty-message'>Seu carrinho está vazio</span>
@@ -53,4 +62,4 @@ const mapStateToProps = (state) => ({
     cart: state.cart
 });
 
-export default connect(mapStateToProps)(CartPage);
+export default connect(mapStateToProps, { removeItemFromCart, addItemToCart, clearItemFromCart })(CartPage);

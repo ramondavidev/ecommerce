@@ -1,5 +1,7 @@
 import {
-    ADD_ITEM_TO_CART
+    ADD_ITEM_TO_CART,
+    REMOVE_ITEM_FROM_CART,
+    CLEAR_ITEM_FROM_CART
 } from './cart.types';
 
 export const addItemToCart = (cartItems, cartItemToAdd) => async dispatch => {
@@ -33,18 +35,31 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => async dispatc
     )
 
     if(existingCartItem.quantityBuy === 1) {
-        return cartItems.filter(cartItem => cartItem._id !== cartItemToRemove._id)
+        const cartUpdated = cartItems.filter(cartItem => cartItem._id !== cartItemToRemove._id)
+        dispatch({
+            type: CLEAR_ITEM_FROM_CART,
+            payload: cartUpdated
+        });
     }
-
-    const cartUpdated = cartItems.map(
-        cartItem => 
-        cartItem._id === cartItemToRemove._id ?
-        {...cartItem, quantityBuy: cartItem.quantityBuy - 1 }
-        : cartItem
-    );
-
-    dispatch({
-        type: ADD_ITEM_TO_CART,
-        payload: cartUpdated
-    });
+    else{
+        const cartUpdated = cartItems.map(
+            cartItem => 
+            cartItem._id === cartItemToRemove._id ?
+            {...cartItem, quantityBuy: cartItem.quantityBuy - 1 }
+            : cartItem
+        );
+        dispatch({
+            type: REMOVE_ITEM_FROM_CART,
+            payload: cartUpdated
+        });
+    }
+    
 };
+
+export const clearItemFromCart = (cartItems, cartItemToRemove) => async dispatch => {
+        const cartUpdated = cartItems.filter(cartItem => cartItem._id !== cartItemToRemove._id)
+        dispatch({
+            type: CLEAR_ITEM_FROM_CART,
+            payload: cartUpdated
+        });
+}
