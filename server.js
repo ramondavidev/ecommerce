@@ -13,6 +13,7 @@ connectDB();
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/items', require('./routes/items'));
+app.use('/api/favorites', require('./routes/favorites'));
 //app.use('/api/purchases', require('./routes/purchases'));
 app.use('/api/auth-admin', require('./routes/authAdmin'));
 app.use('/api/users-admin', require('./routes/usersAdmin'));

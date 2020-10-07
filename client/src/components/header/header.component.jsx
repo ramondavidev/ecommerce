@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../redux/user/user-actions';
 
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import FavsDropdown from '../favs-dropdown/favs-dropdown.component';
 
 import './header.styles.scss';
 
@@ -54,11 +55,16 @@ const Header = ({ logout }) => {
                 <Link to='/' className='logo'><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</Link>
                 <input type="text" className='input-pattern' placeholder='Busque por item'/>
                 <div className='icons'>
+
                     <div>
                         <button className={showFavs? 'grow' : null} onClick={() => clickFavIcon()}>
                             <i className="far fa-heart icon-heart"></i>
                         </button>
-                        {showFavs && <div className='fav-options'>Hey</div>}
+                        {showFavs &&
+                        <div>
+                            <FavsDropdown />
+                        </div>
+                        }
                     </div>
 
                     <div>

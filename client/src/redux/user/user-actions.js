@@ -89,3 +89,19 @@ export const login = (email, password) => async dispatch => {
 
 // Logout
 export const logout = () => ({ type: LOGOUT });
+
+
+// Add Favorite
+export const addFavorite = id => async dispatch => {
+  try {
+    console.log(id);
+    const formData = { id };
+
+    await api.post('/favorites', formData);
+    
+    dispatch(loadUser());
+
+  } catch (err) {
+    console.log(err);
+  }
+};

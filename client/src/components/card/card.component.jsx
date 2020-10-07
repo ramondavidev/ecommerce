@@ -1,19 +1,20 @@
 import React from 'react';
 
 import { addItemToCart } from '../../redux/cart/cart.actions';
+import { addFavorite } from '../../redux/user/user-actions';
 
 import { connect } from 'react-redux';
 
 import './card.styles.scss';
 
-const Card = ({ product, cart, addItemToCart }) => {
+const Card = ({ product, cart, addItemToCart, addFavorite }) => {
     console.log(cart.cartItems);
-    const { name, image, price, description } = product;
+    const { name, image, price, description, _id } = product;
     return (
         <div className='card'>
             <div>
                 <img src={image} alt=""/>
-                <i className="far fa-heart fav-icon"></i>
+                <i onClick={() => addFavorite(_id)} className="far fa-heart fav-icon"></i>
             </div>
             <div className='card-info'>
                 <p className='title'>{name}</p>
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => ({
     cart: state.cart
 });
 
-export default connect(mapStateToProps, {addItemToCart})(Card);
+export default connect(mapStateToProps, {addItemToCart, addFavorite})(Card);
