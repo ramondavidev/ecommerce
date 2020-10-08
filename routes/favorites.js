@@ -14,11 +14,21 @@ router.post('/', auth, async(req, res) => {
         else {
             user.favorites.push(id);
             user.save();
-            res.json(user);
+            return res.json(user);
         }
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send('Server Error');
+        console.error(error.message);
+        return res.status(500).send('Server Error');
+    }
+});
+
+router.get('/', auth, async(req, res) => {
+    try {
+        let user = await User.findById(req.user.id).select('favorites').populate('favorites');
+        return res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).send('Server Error');
     }
 });
 

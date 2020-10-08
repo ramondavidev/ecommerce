@@ -11,6 +11,7 @@ import Men from './pages/men/men.component';
 import Women from './pages/women/women.component';
 import Children from './pages/children/children.component';
 import CartPage from './pages/cart/cart.component';
+import Favorites from './pages/favorites/favorites.component';
 
 import store from './redux/store';
 import { loadUser } from './redux/user/user-actions';
@@ -35,6 +36,7 @@ const App = () => {
         <PrivateRoute exact path='/roupas-femininas' component={Women} />
         <PrivateRoute exact path='/roupas-infantis' component={Children} />
         <PrivateRoute exact path='/carrinho' component={CartPage} />
+        <PrivateRoute exact path='/favoritos' component={Favorites} />
       </Switch>
     </Fragment>
   );

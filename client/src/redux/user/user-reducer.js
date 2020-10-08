@@ -6,14 +6,16 @@ import {
     LOGIN_SUCCESS,
     //LOGIN_FAIL,
     LOGOUT,
-    ACCOUNT_DELETED
+    ACCOUNT_DELETED,
+    GET_FAVORITES
   } from './user-types';
 
 const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     loading: true,
-    user: null
+    user: null,
+    favorites: []
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -40,6 +42,11 @@ export default function (state = INITIAL_STATE, action) {
           isAuthenticated: true,
           loading: false
         };
+      case GET_FAVORITES:
+        return {
+          ...state,
+          favorites: payload
+        }
       case ACCOUNT_DELETED:
         return {
           ...state,

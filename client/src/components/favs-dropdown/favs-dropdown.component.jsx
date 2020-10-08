@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
+import { getFavorites } from '../../redux/user/user-actions';
 
 import './favs-dropdown.styles.scss';
 
-const FavsDropdown = ({ user }) => {
+const FavsDropdown = ({ user, getFavorites }) => {
+
+    useEffect(() => {
+        //call function to upload user.favorites
+        getFavorites();
+    }, []);
+
     const { favorites } = user;
-    console.log(user);
-    console.log(favorites);
     return (
         <div className='cart-dropdown'>
             <div className='cart-items'>
                 {
-                    favorites.length ? (
-                        favorites.map(favorite => (
-                            <p key={favorite._id}>{favorite._id}</p>
+                    favorites.favorites ? (
+                        favorites.favorites.map((favorite, i) => (
+                            <p key={i}>{favorite.name}</p>
                         ))
                     ) : (
                         <span className='empty-message'>Nenhum favorito</span>
@@ -26,8 +32,8 @@ const FavsDropdown = ({ user }) => {
 
 
 const mapStateToProps = (state) => ({
-    user: state.user.user
-  });
+    user: state.user
+});
 
 
-export default connect(mapStateToProps)(FavsDropdown);
+export default connect(mapStateToProps, { getFavorites })(FavsDropdown);

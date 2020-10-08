@@ -7,7 +7,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  GET_FAVORITES
 } from './user-types';
 
 // Load User
@@ -100,6 +101,22 @@ export const addFavorite = id => async dispatch => {
     await api.post('/favorites', formData);
     
     dispatch(loadUser());
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// get favorites
+export const getFavorites = () => async dispatch => {
+  try {
+
+    const res = await api.get('/favorites');
+
+    dispatch({
+      type: GET_FAVORITES,
+      payload: res.data
+    });
 
   } catch (err) {
     console.log(err);
