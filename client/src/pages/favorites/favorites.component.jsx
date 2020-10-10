@@ -1,37 +1,45 @@
 import React, { Fragment, useEffect } from 'react';
 
 import Header from '../../components/header/header.component';
+import Footer from '../../components/footer/footer.component';
+import Card from '../../components/card/card.component';
 
 import { connect } from 'react-redux';
 import { getFavorites } from '../../redux/user/user-actions';
 
 import './favorites.styles.scss';
 
-const Favorites = ({ getFavorites, favorites }) => {
+const Favorites = ({ getFavorites, user }) => {
     useEffect(() => {
-       getFavorites(); 
-    }, []);
+       getFavorites();
+    }, [getFavorites]);
+
+    const { favorites } = user;
 
     return (
         <Fragment>
             <Header />
-            <div>
-            {
-                favorites.favorites ? (
-                    favorites.favorites.map((favorite, i) => (
-                        <p key={i}>{favorite.name}</p>
-                    ))
-                ) : (
-                    <span className='empty-message'>Nenhum favorito</span>
-                )
-            }
+            <div className='favorites'>
+                <p className='page-title'>Salvos Como Favoritos</p>
+                <div className='favorites-container'>
+                {
+                    favorites.favorites ? (
+                        favorites.favorites.map((favorite, i) => (
+                            <Card key={i} product={favorite} />
+                        ))
+                    ) : (
+                        <span className='empty-message'>Nenhum favorito</span>
+                    )
+                }
+                </div>
             </div>
+            <Footer />
         </Fragment>
     )
 }
 
 const mapStateToProps = (state) => ({
-    favorites: state.user.favorites
+    user: state.user
 });
 
 export default connect(mapStateToProps ,{ getFavorites })(Favorites);

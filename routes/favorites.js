@@ -10,10 +10,20 @@ router.post('/', auth, async(req, res) => {
         let user = await User.findById(req.user.id).select('-password');
         const { id } = req.body;
         const exist = user.favorites.find(fav => fav._id == id);
-        if(exist) res.status(500).send('Server Error');
+        //if the user already has as favorite, remove.
+        if(exist) {
+            for(var i = 0; i < user.favorites.length; i ++) {
+                if(user.favorites[i] == id) {
+                    user.favorites.splice(i, 1);
+                }
+            }
+            await user.save();
+            return res.json(user);
+        }
+        //if the user doesnt have as favorite, add.
         else {
             user.favorites.push(id);
-            user.save();
+            await user.save();
             return res.json(user);
         }
     } catch (error) {

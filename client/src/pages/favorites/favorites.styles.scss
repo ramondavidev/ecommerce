@@ -1,0 +1,14 @@
+.favorites {
+    .page-title {
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        margin: 5vw 0;
+        color: #EF476F;
+    }
+    .favorites-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

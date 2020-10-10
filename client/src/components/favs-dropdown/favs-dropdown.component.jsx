@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
+
+import CartItem from '../cart-item/cart-item.component';
 
 import { getFavorites } from '../../redux/user/user-actions';
 
@@ -10,7 +15,7 @@ const FavsDropdown = ({ user, getFavorites }) => {
     useEffect(() => {
         //call function to upload user.favorites
         getFavorites();
-    }, []);
+    }, [getFavorites]);
 
     const { favorites } = user;
     return (
@@ -19,13 +24,14 @@ const FavsDropdown = ({ user, getFavorites }) => {
                 {
                     favorites.favorites ? (
                         favorites.favorites.map((favorite, i) => (
-                            <p key={i}>{favorite.name}</p>
+                            <CartItem key={i} item={favorite} />
                         ))
                     ) : (
                         <span className='empty-message'>Nenhum favorito</span>
                     )
                 }
             </div>
+            <Link to='/favoritos' className='btn-checkout'>Ver Favoritos</Link>
         </div>
     )
 }

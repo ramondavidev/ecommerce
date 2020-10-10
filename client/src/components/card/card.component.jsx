@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import './card.styles.scss';
 
 const Card = ({ product, cart, addItemToCart, addFavorite }) => {
-    console.log(cart.cartItems);
+    
+
     const { name, image, price, description, _id } = product;
     return (
         <div className='card'>
@@ -23,7 +24,7 @@ const Card = ({ product, cart, addItemToCart, addFavorite }) => {
                     <div>
                         <p><span style={{color: 'rgba(0, 0, 0, .5)'}}>em ate 2x</span><span style={{display: 'block', fontWeight: 'bold'}}>{`R$ ${price}`}</span></p>
                     </div>
-                    <button className='btn' onClick={() => addItemToCart(cart.cartItems, product)}>Comprar</button>
+                    <button className='btn' onClick={() => addItemToCart(cart.cartItems, product)}>Adicionar no Carrinho</button>
                 </div>
             </div>
         </div>

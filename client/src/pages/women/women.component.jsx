@@ -3,6 +3,7 @@ import React, { useEffect, Fragment } from 'react';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import Card from '../../components/card/card.component';
+import Spinner from '../../components/spinner/spinner.component';
 
 import { connect } from 'react-redux';
 import { getProductsByGroup } from '../../redux/product/product.actions';
@@ -21,12 +22,12 @@ const Women = ({ getProductsByGroup, women }) => {
             <div className='women'>
                 <div className='card-container'>
                 {
-                    women ? 
+                    women && women.length > 0 ?
                         women.map(product => (
                             <Card key={product._id} product={product} />
                         ))
                     : 
-                        <p>loading...</p>
+                        <Spinner />
                 }
                 </div>
             </div>

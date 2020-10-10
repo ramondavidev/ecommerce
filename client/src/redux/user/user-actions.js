@@ -101,6 +101,7 @@ export const addFavorite = id => async dispatch => {
     await api.post('/favorites', formData);
     
     dispatch(loadUser());
+    dispatch(getFavorites());
 
   } catch (err) {
     console.log(err);
@@ -112,6 +113,7 @@ export const getFavorites = () => async dispatch => {
   try {
 
     const res = await api.get('/favorites');
+    console.log(res.data);
 
     dispatch({
       type: GET_FAVORITES,

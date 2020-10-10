@@ -15,7 +15,7 @@ const CartDropdown = ({ cart }) => {
                 {
                     cartItems.length ? (
                         cartItems.map(cartItem => (
-                            <CartItem key={cartItem._id} item={cartItem} />
+                            <CartItem key={cartItem._id} item={cartItem} removePrice={true} />
                         ))
                     ) : (
                         <span className='empty-message'>Seu carrinho está vazio</span>
