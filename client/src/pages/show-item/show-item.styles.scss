@@ -1,6 +1,7 @@
 .show-item {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 50px;
     img {
         border-radius: 12px;
     }
@@ -22,5 +23,9 @@
         &:hover {
             background-color: #eb2151;
         }
+    }
+    .features {
+        display: flex;
+        justify-content: space-around;
     }
 }
