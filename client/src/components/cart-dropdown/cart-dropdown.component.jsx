@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import CartItem from '../cart-item/cart-item.component';
@@ -28,9 +27,4 @@ const CartDropdown = ({ cart }) => {
 }
 
 
-const mapStateToProps = (state) => ({
-    cart: state.cart
-  });
-
-
-export default connect(mapStateToProps)(CartDropdown);
+export default CartDropdown;

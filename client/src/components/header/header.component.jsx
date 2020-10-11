@@ -9,7 +9,8 @@ import FavsDropdown from '../favs-dropdown/favs-dropdown.component';
 
 import './header.styles.scss';
 
-const Header = ({ logout }) => {
+const Header = ({ logout, cart }) => {
+    console.log(cart);
 
     const [showFavs, setShowFavs] = useState(false);
     const [showCart, setShowCart] = useState(false);
@@ -70,10 +71,14 @@ const Header = ({ logout }) => {
                     <div>
                         <button className={showCart? 'grow' : null} onClick={() => clickCartIcon()}>
                             <i className="fas fa-cart-arrow-down icon-cart"></i>
+                            {
+                                cart.cartItems.length > 0 &&
+                                <div className='amount'>{cart.cartItems.length}</div>
+                            }
                         </button>
                         {showCart && 
                         <div>
-                            <CartDropdown />
+                            <CartDropdown cart={cart} />
                         </div>
                         }
                     </div>
@@ -115,9 +120,12 @@ const Header = ({ logout }) => {
                     Roupas de verão
                 </Link>
             </div>
-
         </div>
     )
 }
 
-export default connect(null, { logout })(Header);
+const mapStateToProps = (state) => ({
+    cart: state.cart
+});
+
+export default connect(mapStateToProps, { logout })(Header);
