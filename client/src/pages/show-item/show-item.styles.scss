@@ -1,0 +1,26 @@
+.show-item {
+    display: flex;
+    justify-content: space-around;
+    img {
+        border-radius: 12px;
+    }
+
+    .info {
+        flex-basis: 500px;
+    }
+
+    .btn {
+        background-color: #EF476F;
+        border-radius: 12px;
+        padding: 15px 20px;
+        border: none;
+        color: #ffffff;
+        width: 175px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+        transition-duration: 0.2s;
+        cursor: pointer;
+        &:hover {
+            background-color: #eb2151;
+        }
+    }
+}

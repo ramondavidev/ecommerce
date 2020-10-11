@@ -19,7 +19,7 @@ const FavsDropdown = ({ user, getFavorites }) => {
 
     const { favorites } = user;
     return (
-        <div className='cart-dropdown'>
+        <div className='fav-dropdown'>
             <div className='cart-items'>
                 {
                     favorites.favorites ? (
