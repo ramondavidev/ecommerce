@@ -5,11 +5,11 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid #FFD166;
+    border: 1px solid rgba(0, 0, 0, .5);
     position: absolute;
     background-color: white;
     border-radius: 12px;
-    color: #FFD166;
+    color: rgba(0, 0, 0, .5);
     margin-left: -120px;
 
     .empty-message {
@@ -28,14 +28,14 @@
     .btn-checkout {
         margin-top: 15px;
         text-decoration: none;
-        color: #FFD166;
+        color: #ffffff;
+        background-color: #FFD166;
         border: solid 1px #FFD166;
         border-radius: 12px;
         padding: 5px 0;
         transition-duration: 0.2s;
         &:hover {
-            background-color: #FFD166;
-            color: white;
+            background-color: #f1b320;
         }
     }
 

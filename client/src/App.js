@@ -41,7 +41,7 @@ const App = () => {
           <PrivateRoute exact path='/roupas-infantis' component={Children} />
           <PrivateRoute exact path='/carrinho' component={CartPage} />
           <PrivateRoute exact path='/favoritos' component={Favorites} />
-          <PrivateRoute exact path='/:id' component={ShowItem} />
+          <PrivateRoute path='/produto/:id' component={ShowItem} />
         </Suspense>
       </Switch>
     </Fragment>
