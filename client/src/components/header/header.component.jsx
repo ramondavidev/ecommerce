@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { logout } from '../../redux/user/user-actions';
@@ -10,8 +10,9 @@ import FavsDropdown from '../favs-dropdown/favs-dropdown.component';
 import './header.styles.scss';
 
 const Header = ({ logout, cart }) => {
+    let history = useHistory();
     console.log(cart);
-
+    const [search, setSearch] = useState('');
     const [showFavs, setShowFavs] = useState(false);
     const [showCart, setShowCart] = useState(false);
     const [userOptions, setUserOptions] = useState(false);
@@ -54,9 +55,15 @@ const Header = ({ logout, cart }) => {
 
             <div className='flex-container-actions'>  
                 <Link to='/' className='logo'><span style={{display: 'block', fontWeight: '700'}}>Neo</span>Store</Link>
-                <input type="text" className='input-pattern' placeholder='Busque por item'/>
+                <form className='input-pattern'>
+                    <input 
+                        type="text" 
+                        placeholder='Busque por item'
+                        onChange={e => setSearch(e.target.value) }
+                    />
+                    <button onClick={ () => history.push(`/pesquisa/${search.toLowerCase()}`) }></button>
+                </form>
                 <div className='icons'>
-
                     <div>
                         <button className={showFavs? 'grow' : null} onClick={() => clickFavIcon()}>
                             <i className="far fa-heart icon-heart"></i>

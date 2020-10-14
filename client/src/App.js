@@ -21,6 +21,7 @@ const Children = lazy(() => import('./pages/children/children.component'));
 const CartPage = lazy(() => import('./pages/cart/cart.component'));
 const Favorites = lazy(() => import('./pages/favorites/favorites.component'));
 const ShowItem = lazy(() => import('./pages/show-item/show-item.component'));
+const Search = lazy(() => import('./pages/search/search.component'));
 
 const App = () => {
 
@@ -42,6 +43,7 @@ const App = () => {
           <PrivateRoute exact path='/carrinho' component={CartPage} />
           <PrivateRoute exact path='/favoritos' component={Favorites} />
           <PrivateRoute path='/produto/:id' component={ShowItem} />
+          <PrivateRoute path='/pesquisa/:valor' component={Search} />
         </Suspense>
       </Switch>
     </Fragment>

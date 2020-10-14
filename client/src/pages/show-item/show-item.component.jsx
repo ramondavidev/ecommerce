@@ -1,23 +1,34 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+import { getProductById } from '../../redux/product/product.actions';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 
 import './show-item.styles.scss';
 
-const ShowItem = () => {
+const ShowItem = ({ match ,getProductById, product }) => {
+    useEffect(() => {
+        getProductById(match.params.id);
+    }, []);
+
+    //const { name, description, price, option, quantity } = product;
+
     return (
         <Fragment>
             <Header />
+            {
+                product ?
             <div className='show-item'>
-                <img src="https://images.unsplash.com/photo-1601294468283-a757cbd09a28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" width='450' alt=""/>
+                <img src={product.image} width='450' alt=""/>
                 <div className='info'>
-                    <h3>Calça Jeans</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, suscipit ab fugit debitis numquam doloremque! Ea, neque reiciendis reprehenderit quaerat explicabo odit vitae molestiae optio accusantium tempore soluta error magnam.</p>
+                    <h3>{product.name}</h3>
+                    <p>{product.description}</p>
                     <div className='features'>
-                        <p> <strong>Quantidade: </strong> 5</p>
+                        <p> <strong>Quantidade: </strong> {product.quantity}</p>
                         <p> <strong>Tamanho: </strong> GG </p>
-                        <p> <strong>Cor: </strong> Azul </p>
+                        <p> <strong>Cor: </strong> {product.option} </p>
                     </div>
                     
                     <div style={{marginTop: '30px'}}>
@@ -32,9 +43,15 @@ const ShowItem = () => {
                     <button className='btn'>Adicionar no Carrinho</button>
                 </div>
             </div>
+            : <p>loading...</p>
+            }
             <Footer />
         </Fragment>
     )
 }
 
-export default ShowItem;
+const mapStateToProps = (state) => ({
+    product: state.products.product
+});
+
+export default connect(mapStateToProps, { getProductById })(ShowItem);

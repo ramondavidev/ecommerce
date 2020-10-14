@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { addFavorite } from '../../redux/user/user-actions';
 
@@ -18,7 +20,7 @@ const Card = ({ product, cart, addItemToCart, addFavorite }) => {
                 <i onClick={() => addFavorite(_id)} className="far fa-heart fav-icon"></i>
             </div>
             <div className='card-info'>
-                <p className='title'>{name}</p>
+                <Link className='title' to={`/produto/${_id}`} >{name}</Link>
                 <p className='info'>{description.substring(0, 60)}</p>
                 <div className='card-bottom'>
                     <div>

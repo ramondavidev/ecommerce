@@ -11,7 +11,13 @@
         text-align: center;
     }
     .title {
+        text-decoration: none;
+        color: black;
         font-weight: 700;
+        transition-duration: 0.2s;
+        &:hover {
+            color: #EF476F;
+        }
     }
     .info {
         color: rgba(0, 0, 0, .5);

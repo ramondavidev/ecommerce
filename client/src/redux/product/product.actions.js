@@ -41,6 +41,29 @@ export const displayHome = () => async dispatch => {
   }
 };
 
+
+export const getProductByName = name => async dispatch => {
+  try {
+    console.log('got here!');
+    console.log(name);
+    const res = await api.get(`/items/search/${name}`);
+    console.log('res');
+    console.log(res);
+    console.log('res');
+
+
+    dispatch({
+      type: GET_PRODUCTS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PRODUCT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
 // Get posts
 export const getProductsByCategory = ( category ) => async dispatch => {
     try {
