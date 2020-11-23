@@ -1,11 +1,12 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { addFavorite } from '../../redux/user/user-actions';
 
 import { connect } from 'react-redux';
+
+import CustomButton from '../custom-button/custom-button.component';
 
 import './card.styles.scss';
 
@@ -26,15 +27,18 @@ const Card = ({ product, cart, addItemToCart, addFavorite }) => {
                     <div>
                         <p><span style={{color: 'rgba(0, 0, 0, .5)'}}>em ate 2x</span><span style={{display: 'block', fontWeight: 'bold'}}>{`R$ ${price}`}</span></p>
                     </div>
-                    <button className='btn' onClick={() => addItemToCart(cart.cartItems, product)}>Adicionar no Carrinho</button>
+                    <CustomButton onClick={() => addItemToCart(cart.cartItems, product)}> Adicionar no Carrinho </CustomButton>
                 </div>
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+    console.log('card');
+  return {
     cart: state.cart
-});
+  }
+};
 
 export default connect(mapStateToProps, {addItemToCart, addFavorite})(Card);

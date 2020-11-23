@@ -7,6 +7,7 @@ import { addItemToCart, removeItemFromCart, clearItemFromCart } from '../../redu
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import CardCheckout from '../../components/card-checkout/card-checkout.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
 import './cart.styles.scss';
 
@@ -49,7 +50,7 @@ const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart }
                             <div>
                                 <p><span style={{color: 'rgba(0, 0, 0, .5)', marginRight: '20px'}}>Total</span><span style={{fontWeight: 'bold'}}>R$ {cartItems? selectTotal(cartItems) : 0}</span></p>
                             </div>
-                            <button className='btn'>Confirmar Compra</button>
+                            <CustomButton> Confirmar Compra </CustomButton>
                         </div>
                 }
             </div>

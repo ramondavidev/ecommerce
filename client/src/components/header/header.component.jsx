@@ -17,6 +17,12 @@ const Header = ({ logout, cart }) => {
     const [showCart, setShowCart] = useState(false);
     const [userOptions, setUserOptions] = useState(false);
 
+    const itemCount = ( cartItems ) => {
+        return (
+            cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantityBuy, 0)
+        )
+    }
+
     const clickUserIcon = () => {
         setShowFavs(false);
         setShowCart(false);
@@ -80,7 +86,7 @@ const Header = ({ logout, cart }) => {
                             <i className="fas fa-cart-arrow-down icon-cart"></i>
                             {
                                 cart.cartItems.length > 0 &&
-                                <div className='amount'>{cart.cartItems.length}</div>
+                                <div className='amount'>{itemCount(cart.cartItems)}</div>
                             }
                         </button>
                         {showCart && 

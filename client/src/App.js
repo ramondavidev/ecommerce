@@ -33,7 +33,7 @@ const App = () => {
   return (
     <Fragment>
       <Switch>
-        <Suspense fallback={ <Spinner /> }>
+        <Suspense fallback={ <Spinner />}>
           <Route exact path='/registrar' component={Register} />
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/' component={Home} />

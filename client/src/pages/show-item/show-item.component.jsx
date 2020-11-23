@@ -2,13 +2,14 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getProductById } from '../../redux/product/product.actions';
+import { addItemToCart } from '../../redux/cart/cart.actions';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 
 import './show-item.styles.scss';
 
-const ShowItem = ({ match ,getProductById, product }) => {
+const ShowItem = ({ match ,getProductById, product, addItemToCart, cart }) => {
     useEffect(() => {
         getProductById(match.params.id);
     }, []);
@@ -40,7 +41,7 @@ const ShowItem = ({ match ,getProductById, product }) => {
                         </span>
                     </div>
                     
-                    <button className='btn'>Adicionar no Carrinho</button>
+                    <button className='btn' onClick={() => addItemToCart(cart.cartItems, product)}>Adicionar no Carrinho</button>
                 </div>
             </div>
             : <p>loading...</p>
@@ -51,7 +52,8 @@ const ShowItem = ({ match ,getProductById, product }) => {
 }
 
 const mapStateToProps = (state) => ({
-    product: state.products.product
+    product: state.products.product,
+    cart: state.cart
 });
 
-export default connect(mapStateToProps, { getProductById })(ShowItem);
+export default connect(mapStateToProps, { getProductById, addItemToCart })(ShowItem);

@@ -4,6 +4,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../redux/user/user-actions';
 
+import CustomButtom from '../../components/custom-button/custom-button.component';
+
 import './register.styles.scss';
 
 const Register = ({ register, isAuthenticated }) => {
@@ -115,7 +117,7 @@ const Register = ({ register, isAuthenticated }) => {
                     />
                     </div>
                     <div>
-                        <button className='btn-login mt-30'>Cadastrar</button>
+                        <CustomButtom style={{marginTop: '15px'}}> Cadastrar </CustomButtom>
                         <p className='info'>Já tem uma conta? <Link to='/login'>Entrar</Link></p>
                     </div>
                 </form>

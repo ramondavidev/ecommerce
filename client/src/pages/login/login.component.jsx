@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../redux/user/user-actions';
 
+import CustomButtom from '../../components/custom-button/custom-button.component';
+
 import './login.styles.scss';
 
 const Login = ({ login, isAuthenticated }) => {
@@ -67,7 +69,7 @@ const Login = ({ login, isAuthenticated }) => {
                     </div>
                     <div className='links'>
                         <a className='forgot'>Esqueci Senha</a>
-                        <button className='btn-login'>Entrar</button>
+                        <CustomButtom> Entrar </CustomButtom>
                     </div>
                     <p className='info'>Ainda não possui uma conta? <Link to='registrar'>Cadastre-se</Link></p>
                 </form>

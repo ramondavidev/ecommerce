@@ -59,7 +59,7 @@ export const getProductByName = name => async dispatch => {
   } catch (err) {
     dispatch({
       type: PRODUCT_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: 'not found', status: '404' }
     });
   }
 };
