@@ -5,11 +5,18 @@ import { createSelector } from 'reselect';
 //are selector that only returns a piece of the state
 const selectCart = state => state.cart;
 
+//const selectUSer = state => state.user;
+
 //select and get the cartItems from state
 export const selectCartItems = createSelector(
     [selectCart], //select the array of cart (state.cart)
     (cart) => cart.cartItems //function which returns the cartItems from state.cart
 );
+
+/*export const selectCartItems = createSelector(
+    [selectCart, selectUser], 
+    (cart, user) =>  
+);*/
 
 export const selectCartHidden = createSelector(
     [selectCart],

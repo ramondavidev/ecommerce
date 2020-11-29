@@ -37,12 +37,9 @@ const FavsDropdown = ({ user, getFavorites }) => {
 }
 
 
-const mapStateToProps = (state) => {
-    console.log('favs-dropdown');
-  return {
+const mapStateToProps = (state) => ({
     user: state.user
-  }
-};
+});
 
 
 export default connect(mapStateToProps, { getFavorites })(FavsDropdown);

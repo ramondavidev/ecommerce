@@ -34,11 +34,8 @@ const Card = ({ product, cart, addItemToCart, addFavorite }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    console.log('card');
-  return {
+const mapStateToProps = (state) => ({
     cart: state.cart
-  }
-};
+});
 
 export default connect(mapStateToProps, {addItemToCart, addFavorite})(Card);
