@@ -5,7 +5,7 @@ import PrivateRoute from './PrivateRoute';
 
 import Spinner from './components/spinner/spinner.component';
 
-import store from './redux/store';
+import {store} from './redux/store';
 import { loadUser } from './redux/user/user-actions';
 import setAuthToken from './utils/setAuthToken';
 

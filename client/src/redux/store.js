@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
 import rootReducer from './root-reducer';
@@ -8,11 +9,13 @@ const initialState = {};
 
 const middleware = [thunk];
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
+
+export const persistor = persistStore(store);
 
 // set up a store subscription listener
 // to store the users token in localStorage
@@ -32,4 +35,4 @@ store.subscribe(() => {
   }
 });
 
-export default store;
+export default { store, persistor };
