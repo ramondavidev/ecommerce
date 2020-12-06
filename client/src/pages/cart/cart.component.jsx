@@ -8,6 +8,7 @@ import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import CardCheckout from '../../components/card-checkout/card-checkout.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
 import './cart.styles.scss';
 
@@ -53,6 +54,7 @@ const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart }
                             <CustomButton> Confirmar Compra </CustomButton>
                         </div>
                 }
+            <StripeCheckoutButton price={cartItems? selectTotal(cartItems) : 0} />
             </div>
             <Footer />
         </Fragment>
