@@ -5,7 +5,7 @@ const PurchaseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    item: [
+    items: [
         {
             name: {
                 type: String,

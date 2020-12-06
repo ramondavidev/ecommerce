@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
-import { addItemToCart, removeItemFromCart, clearItemFromCart } from '../../redux/cart/cart.actions';
+import { addItemToCart, removeItemFromCart, clearItemFromCart, clearCart } from '../../redux/cart/cart.actions';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
@@ -14,7 +14,7 @@ import './cart.styles.scss';
 
 
 
-const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart }) => {
+const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart, clearCart }) => {
     const { cartItems } = cart;
 
     const selectTotal = (cart) => {
@@ -54,7 +54,7 @@ const CartPage = ({ cart, removeItemFromCart, addItemToCart, clearItemFromCart }
                             <CustomButton> Confirmar Compra </CustomButton>
                         </div>
                 }
-            <StripeCheckoutButton price={cartItems? selectTotal(cartItems) : 0} />
+            <StripeCheckoutButton cart={cartItems } price={cartItems? selectTotal(cartItems) : 0} clearCart={clearCart} />
             </div>
             <Footer />
         </Fragment>
@@ -65,4 +65,4 @@ const mapStateToProps = (state) => ({
     cart: state.cart
 });
 
-export default connect(mapStateToProps, { removeItemFromCart, addItemToCart, clearItemFromCart })(CartPage);
+export default connect(mapStateToProps, { removeItemFromCart, addItemToCart, clearItemFromCart, clearCart })(CartPage);

@@ -1,7 +1,8 @@
 import {
     ADD_ITEM_TO_CART,
     REMOVE_ITEM_FROM_CART,
-    CLEAR_ITEM_FROM_CART
+    CLEAR_ITEM_FROM_CART,
+    CLEAR_CART
 } from './cart.types';
 
 export const addItemToCart = (cartItems, cartItemToAdd) => async dispatch => {
@@ -62,4 +63,10 @@ export const clearItemFromCart = (cartItems, cartItemToRemove) => async dispatch
             type: CLEAR_ITEM_FROM_CART,
             payload: cartUpdated
         });
+}
+
+export const clearCart = () => async dispatch => {
+    dispatch({
+        type: CLEAR_CART
+    });
 }
