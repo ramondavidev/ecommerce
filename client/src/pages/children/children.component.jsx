@@ -14,7 +14,7 @@ const Children = ({ getProductsByGroup, children }) => {
 
     useEffect(() => {
         getProductsByGroup('crianca', 'GET_PRODUCTS_FOR_CHILDREN');
-    }, []);
+    }, [getProductsByGroup]);
 
     return (
         <Fragment>

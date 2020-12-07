@@ -18,7 +18,7 @@ import {
     error: {}
   };
   
-  export default function(state = initialState, action) {
+ const productReducer = (state = initialState, action) => {
     const { type, payload } = action;
   
     switch (type) {
@@ -63,3 +63,5 @@ import {
         return state;
     }
   }
+
+  export default productReducer;

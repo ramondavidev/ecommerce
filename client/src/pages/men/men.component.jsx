@@ -14,7 +14,7 @@ const Men = ({ getProductsByGroup, men }) => {
 
     useEffect(() => {
         getProductsByGroup('homem', 'GET_PRODUCTS_FOR_MEN');
-    }, []);
+    }, [getProductsByGroup]);
 
     return (
         <Fragment>

@@ -12,7 +12,7 @@ import './show-item.styles.scss';
 const ShowItem = ({ match ,getProductById, product, addItemToCart, cart }) => {
     useEffect(() => {
         getProductById(match.params.id);
-    }, []);
+    }, [getProductById, match.params.id]);
 
     //const { name, description, price, option, quantity } = product;
 

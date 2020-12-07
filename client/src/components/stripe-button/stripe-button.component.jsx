@@ -21,7 +21,8 @@ const StripeCheckoutButton = ({ price, cart, clearCart }) => {
                 cart
             }
             await api.post('/payment', data);
-            clerAllItems();
+            await clerAllItems();
+            //send user to thank you page
             alert('Pagamento realizado com sucesso!');
         } catch (error) {
             console.log(error);
@@ -51,7 +52,6 @@ const StripeCheckoutButton = ({ price, cart, clearCart }) => {
             label="Pague Agora"
             name="Neo Store"
             billingAddress
-            image=''
             description={`Preço total R$${price}`}
             currency="BRL"
             amount={priceForStripe}

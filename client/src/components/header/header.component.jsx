@@ -103,10 +103,10 @@ const Header = ({ logout, cart }) => {
                         {
                             userOptions && 
                             <div className='user-options'>
-                                <a className='logout-btn' onClick={() => {logout()}} >
+                                <span className='logout-btn' onClick={() => {logout()}} >
                                     <i className='fas fa-sign-out-alt fa-lg text-danger' />{' '}
                                     <div className='hide-sm'>Sair</div>
-                                </a>
+                                </span>
                             </div>
                         }
                     </div>

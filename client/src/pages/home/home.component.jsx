@@ -15,7 +15,7 @@ const Home = ({ displayHome, products, cart }) => {
 
     useEffect(() => {
         displayHome();
-    }, []);
+    }, [displayHome]);
 
     console.log(cart);
     const { men, women, children } = products;

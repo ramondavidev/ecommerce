@@ -81,6 +81,10 @@
         .forgot {
             font-weight: 600;
             margin-top: 10px;
+            cursor: pointer;
+            &:hover {
+                color: #EF476F;
+            }
         }
     
         .info {

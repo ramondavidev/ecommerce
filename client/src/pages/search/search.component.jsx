@@ -7,7 +7,7 @@ import { getProductByName } from '../../redux/product/product.actions';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import Card from '../../components/card/card.component';
-import Spinner from '../../components/spinner/spinner.component';
+//import Spinner from '../../components/spinner/spinner.component';
 
 import './search.styles.scss';
 
@@ -15,7 +15,7 @@ const Search = ({ match, producs, getProductByName }) => {
 
     useEffect(() => {
         getProductByName(match.params.valor);
-    }, [match.params.valor]);
+    }, [getProductByName, match.params.valor]);
 
     console.log(producs);
     return (

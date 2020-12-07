@@ -18,7 +18,7 @@ const INITIAL_STATE = {
     favorites: []
 };
 
-export default function (state = INITIAL_STATE, action) {
+const userReducer = (state = INITIAL_STATE, action) => {
     const { type, payload } = action;
     switch (type) {
       case USER_LOADED:
@@ -68,3 +68,5 @@ export default function (state = INITIAL_STATE, action) {
         return state;
     }
 }
+
+export default userReducer;
