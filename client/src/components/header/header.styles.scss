@@ -14,7 +14,6 @@
         display: flex;
         flex-direction: row;
         text-align: center;
-        flex-wrap: wrap;
         justify-content: flex-end;
     }
     .flex-item-social-network {
@@ -33,11 +32,14 @@
         display: flex;
         flex-direction: row;
         text-align: center;
-        flex-wrap: wrap;
+        //flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
         width: 90vw;
         margin: 0 auto;
+        @media screen and (max-width: 900px) {
+              display: block;
+          }
     }
 
     .flex-container-menu {
@@ -51,6 +53,7 @@
     .flex-item-menu {
         height: 30px;
         color: black;
+        padding: 5px 10px;
         font-weight: 700;
         text-decoration: none;
         transition-duration: 0.2s;
@@ -60,7 +63,7 @@
     }
 
     .input-pattern {
-        margin-top: 10px;
+        margin: 10px 20px;
         flex-basis: 650px;
         //box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
         input {
@@ -69,7 +72,7 @@
             border: none;
             background-color: #F8F8F8;
             height: 10px;
-            width: 100%;
+            width: 90%;
             &:focus {
                 outline: none;
             }
@@ -82,6 +85,9 @@
         justify-content: space-around;
         align-items: center;
         margin-right: 50px;
+        @media screen and (max-width: 900px) {
+            margin: auto;
+        }
     }
 
     .icon-heart {
@@ -129,15 +135,17 @@
 
     .user-options {
         position: absolute;
-        width: 100px;
         background-color: #142850;
         border-radius: 12px;
         color: #ffffff;
-        .logout-btn {
+        padding: 10px 10px;
+        .user-options-btn {
             display: flex;
             justify-content: center;
-            padding: 10px 0;
             cursor: pointer;
+            &:hover {
+                color: #EF476F;
+            }
         }
     }
     .cart-options {

@@ -54,9 +54,6 @@ const Header = ({ logout, cart }) => {
                 <a href='/#' className='flex-item-social-network'>
                     Instagram  
                 </a>
-                <a href='/#' className='flex-item-social-network' style={{marginRight: '70px'}}>
-                    Twitter
-                </a>
             </div>
 
             <div className='flex-container-actions'>  
@@ -103,9 +100,13 @@ const Header = ({ logout, cart }) => {
                         {
                             userOptions && 
                             <div className='user-options'>
-                                <span className='logout-btn' onClick={() => {logout()}} >
-                                    <i className='fas fa-sign-out-alt fa-lg text-danger' />{' '}
-                                    <div className='hide-sm'>Sair</div>
+                                <span className='user-options-btn' onClick={ () => history.push('/compras') }>
+                                    Minhas compras
+                                </span>
+                                <hr/>
+                                <span className='user-options-btn' onClick={() => {logout()}} >
+                                    <i className='fas fa-sign-out-alt fa-lg text-danger' />
+                                    <div style={{marginLeft: '10px'}} className='hide-sm'>Sair</div>
                                 </span>
                             </div>
                         }

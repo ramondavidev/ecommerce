@@ -25,7 +25,6 @@ const Search = lazy(() => import('./pages/search/search.component'));
 const Purchases = lazy(() => import ('./pages/purchases/purchases.component'));
 
 const App = () => {
-
   useEffect(() => {
     setAuthToken(localStorage.token);
     store.dispatch(loadUser());
