@@ -1,12 +1,16 @@
 .card {
     margin-bottom: 50px;
     flex-basis: 350px;
+    max-width: 350px;
     box-shadow: 8px 8px 16px rgba(139, 139, 139, 0.15);
     border-radius: 12px;
     justify-content: center;
+    @media screen and (max-width: 900px) {
+        margin: 30px auto;
+    }
     img {
         border-radius: 12px;
-        max-width: 350px;
+        width: 100%;
         max-height: 350px;
         text-align: center;
     }

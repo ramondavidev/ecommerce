@@ -31,8 +31,13 @@
     }
     .card-container {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-around;
+        max-width: 1700px;
+        margin: auto;
+        @media screen and (max-width: 900px) {
+            display: block;
+
+        }
     }
     .seeMore {
         width: 90vw;
@@ -52,15 +57,20 @@
     .second-featured-image {
         display: flex;
         width: 90vw;
+        max-width: 1400px;
         margin: 0 auto 50px;
         justify-content: space-between;
         align-items: center;
-        img {
-            width: 40vw;
+        @media screen and (max-width: 900px) {
+            display: block;
+        }
+        .container-image {
+            flex-basis: 600px;
             border-radius: 12px;
         }
         .info {
-            width: 40vw;
+            flex-basis: 600px;
+            margin-left: 2vw;
         }
         .title {
             font-weight: bold;

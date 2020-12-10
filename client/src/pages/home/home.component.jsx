@@ -48,7 +48,9 @@ const Home = ({ displayHome, products, cart }) => {
                 </div>
 
                 <div className='second-featured-image'>
-                    <img src="https://images.unsplash.com/photo-1519568470290-c0c1fbfff16f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=521&q=80" alt=""/>
+                    <div className='container-image'>
+                        <img src="https://images.unsplash.com/photo-1519568470290-c0c1fbfff16f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=521&q=80" style={{width: '100%'}} alt=""/>
+                    </div>
                     <div className='info'>
                         <p className='title'>Moda Verão</p>
                         <p className='text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, quisquam sunt! Deleniti mollitia, ipsam doloremque accusamus nobis magni sunt maiores aperiam earum veritatis molestiae inventore quam rerum dolorum molestias voluptate.</p>
