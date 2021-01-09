@@ -71,7 +71,7 @@ const Login = ({ login, isAuthenticated }) => {
                         <span className='forgot'>Esqueci Senha</span>
                         <CustomButtom> Entrar </CustomButtom>
                     </div>
-                    <p className='info'>Ainda não possui uma conta? <Link to='registrar'>Cadastre-se</Link></p>
+                    <p className='info'>Ainda não possui uma conta? <span style={{display:'block'}}><Link to='registrar'>Cadastre-se</Link></span></p>
                 </form>
             </div>
         </div>

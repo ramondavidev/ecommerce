@@ -14,12 +14,19 @@
             margin-left: 5%;
             margin-top: 70vh;
         }
+        @media screen and (max-width: 950px) {
+            display: none !important;
+        }
     }
     .login {
         width: 50%;
         background-color: #FFFFFF;
         height: 100vh;
         text-align: center;
+
+        @media screen and (max-width: 950px) {
+            width: 100%;
+        }
     
         .title {
             font-weight: 700;
@@ -73,9 +80,10 @@
     
         .links {
             margin: 30px auto;
-            width: 400px;
+            max-width: 400px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
     
         .forgot {
@@ -89,6 +97,7 @@
     
         .info {
             margin-top: 60px;
+            margin-left: 15px;
             font-weight: 600;
         }
     }

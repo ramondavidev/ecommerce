@@ -6,6 +6,16 @@
     justify-content: space-around;
     align-items: center;
     margin: 20px 0;
+    @media screen and (max-width: 990px) {
+        flex-wrap: wrap;
+    }
+    .first-part {
+        display: flex;
+        @media screen and (max-width: 600px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
     img {
         border-radius: 12px;
         max-height: 150px;
@@ -28,5 +38,12 @@
         background-color: #EF4747;
         border-radius: 12px;
         cursor: pointer;
+    }
+    .quantity, .total, .btn-checkout {
+        flex-basis: 200px;
+        @media screen and (max-width: 830px) {
+            flex-wrap: wrap;
+            flex-basis: 70px;
+        }
     }
 }

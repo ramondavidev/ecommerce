@@ -1,14 +1,22 @@
 .show-item {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 50px;
+    .img-container {
+        flex-basis: 450px;
+    }
     img {
         border-radius: 12px;
+        width: 100%;
     }
 
     .info {
         flex-basis: 500px;
+        @media screen and (max-width: 640px) {
+            margin-left: 20px;
+        }
     }
 
     .btn {
@@ -29,5 +37,6 @@
     .features {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
     }
 }

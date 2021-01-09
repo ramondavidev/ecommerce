@@ -22,7 +22,9 @@ const ShowItem = ({ match ,getProductById, product, addItemToCart, cart }) => {
             {
                 product ?
             <div className='show-item'>
-                <img src={product.image} width='450' alt=""/>
+                <div className='img-container'>
+                    <img src={product.image} alt=""/>
+                </div>
                 <div className='info'>
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
