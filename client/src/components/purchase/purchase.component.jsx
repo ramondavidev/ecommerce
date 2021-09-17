@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './purchase.styles.scss';
 
 const Purchase = ({ purchase }) => {
+
+    const [itensBought, setItensBought] = useState(false);
+
     const { _id, boughtBy, date, items, totalPrice } = purchase;
     return (
         <div className='purchase'>
